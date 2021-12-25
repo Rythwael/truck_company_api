@@ -8,6 +8,4 @@ router.route("/vehicle_add").post(vehicleController.addVehicle);
 router.route("/vehicle_update").patch(vehicleController.updateVehicle);
 router.route("/vehicle_delete").delete(vehicleController.deleteVehicle);
 
-
-
 module.exports = router
