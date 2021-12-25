@@ -17,11 +17,38 @@ const getVehicles = (req, res) => {
       if (error) {
         throw error
       }
-      res.status(201).send(`Vehicle adding was successful`)
+      res.status(201).send(`Vehicle added`)
+    })
+  }
+
+  const updateVehicle = (req, res) => {
+    const vehicle = req.body
+    pool.query(
+      `UPDATE vehicles SET vehicle_plate = '${vehicle.vehicle_plate}', current_status = '${vehicle.current_status}',
+       is_active = '${vehicle.is_active}' WHERE id = '${vehicle.id}'`,
+      (error, results) => {
+        if (error) {
+          throw error
+        }
+        res.status(200).send(`Vehicle with ID : ${vehicle.id} updated`)
+      }
+    )
+  }
+
+  const deleteVehicle = (req, res) => {
+    const vehicle = req.body
+  
+    pool.query(`DELETE FROM vehicles WHERE id = '${vehicle.id}'`, (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(200).send(`Vehicle with ID: ${vehicle.id} deleted.`)
     })
   }
 
   module.exports = {
     getVehicles,
-    addVehicle
+    addVehicle,
+    updateVehicle,
+    deleteVehicle
   }
