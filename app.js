@@ -4,6 +4,8 @@ const vehicleRoute = require("./adapters/routes/vehicleRoute");
 const deviceRoute = require("./adapters/routes/deviceRoute");
 const deviceTypeRoute = require("./adapters/routes/deviceTypeRoute");
 const temperatureRoute = require("./adapters/routes/temperatureRoute");
+const locationRoute = require("./adapters/routes/locationRoute");
+
 
 
 
@@ -18,7 +20,7 @@ app.use("/vehicles", vehicleRoute)
 app.use("/device", deviceRoute)
 app.use("/devices_type", deviceTypeRoute)
 app.use("/log_temperature", temperatureRoute)
-// app.use("/log_location", logLocationRoute)
+app.use("/log_location", locationRoute)
 
 
 const PORT = 3000
