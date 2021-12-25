@@ -3,6 +3,8 @@ const app = express();
 const vehicleRoute = require("./adapters/routes/vehicleRoute");
 const deviceRoute = require("./adapters/routes/deviceRoute");
 const deviceTypeRoute = require("./adapters/routes/deviceTypeRoute");
+const temperatureRoute = require("./adapters/routes/temperatureRoute");
+
 
 
 
@@ -15,7 +17,7 @@ app.get('/', (req, res) => {
 app.use("/vehicles", vehicleRoute)
 app.use("/device", deviceRoute)
 app.use("/devices_type", deviceTypeRoute)
-// app.use("/log_temperature", logTemperatureRoute)
+app.use("/log_temperature", temperatureRoute)
 // app.use("/log_location", logLocationRoute)
 
 
